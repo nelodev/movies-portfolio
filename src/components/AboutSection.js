@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import {
   AboutContainer,
   DescriptionContainer,
@@ -30,7 +29,7 @@ const AboutSection = () => {
         </p>
         <button>Contact Us</button>
       </DescriptionContainer>
-      <ImageContainer className="image">
+      <ImageContainer>
         <img src={home1} alt="Guy with a camera" />
       </ImageContainer>
     </AboutContainer>

@@ -42,43 +42,43 @@ const Card = styled.div`
 const ServicesSection = () => {
   return (
     <ServicesContainer>
-      <DescriptionContainer className="description">
+      <DescriptionContainer>
         <h2>
           High <span>quality</span> services
         </h2>
         <CardsContainer>
           <Card>
             <div className="icon">
-              <img src={clock} alt="Clock" />
+              <img src={clock} alt="Clock icon" />
               <h3>Efficient</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img src={teamwork} alt="Clock" />
+              <img src={teamwork} alt="TeamWork icon" />
               <h3>Teamwork</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img src={diaphragm} alt="Clock" />
+              <img src={diaphragm} alt="Diaphragm icon" />
               <h3>Diaphragm</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img src={money} alt="Clock" />
+              <img src={money} alt="Money icon" />
               <h3>Affordable</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
         </CardsContainer>
       </DescriptionContainer>
-      <ImageContainer className="image">
-        <img src={home2} alt="Camera image" />
+      <ImageContainer>
+        <img src={home2} alt="Professional camera" />
       </ImageContainer>
     </ServicesContainer>
   );
