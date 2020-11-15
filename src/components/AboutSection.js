@@ -6,6 +6,7 @@ import {
   ImageContainer,
   Hide,
 } from "../styles";
+import Wave from "./Wave";
 import home1 from "../img/home1.png";
 
 const AboutSection = () => {
@@ -38,6 +39,7 @@ const AboutSection = () => {
           alt="Guy with a camera"
         />
       </ImageContainer>
+      <Wave />
     </AboutContainer>
   );
 };
