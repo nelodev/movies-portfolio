@@ -1,0 +1,108 @@
+import { useState, useEffect } from "react";
+import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import { MovieState } from "../movieState";
+
+const DetailtsContainer = styled.div`
+  color: white;
+`;
+
+const Headline = styled.div`
+  min-height: 90vh;
+  padding-top: 20vh;
+  position: relative;
+  h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+  }
+  img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+`;
+
+const AwardsContainer = styled.div`
+  min-height: 80vh;
+  display: flex;
+  margin: 5rem 10rem;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const AwardStyle = styled.div`
+  padding: 5rem;
+  h3 {
+    font-size: 2rem;
+  }
+  .line {
+    width: 100%;
+    background-color: #23d997;
+    height: 0.5rem;
+    margin: 1rem 0rem;
+  }
+  p {
+    padding: 2rem 0rem;
+  }
+`;
+
+const ImageDisplay = styled.div`
+  min-height: 50vh;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const Award = ({ title, description }) => {
+  return (
+    <AwardStyle>
+      <h3>{title}</h3>
+      <div className="line"></div>
+      <p>{description}</p>
+    </AwardStyle>
+  );
+};
+
+const MovieDetail = () => {
+  const [movie, setMovie] = useState(null);
+  const [movies, setMovies] = useState(MovieState);
+
+  const history = useHistory();
+  const url = history.location.pathname;
+
+  useEffect(() => {
+    const currentMovie = movies.find((mov) => mov.url === url);
+    setMovie(currentMovie);
+  }, [movies, url]);
+
+  return (
+    <>
+      {movie && (
+        <DetailtsContainer>
+          <Headline>
+            <h2>{movie.title}</h2>
+            <img src={movie.mainImg} alt="Movie" />
+          </Headline>
+          <AwardsContainer>
+            {movie.awards.map((award) => (
+              <Award
+                key={award.title}
+                title={award.title}
+                description={award.description}
+              />
+            ))}
+          </AwardsContainer>
+          <ImageDisplay>
+            <img src={movie.secondaryImg} alt="Secondary" />
+          </ImageDisplay>
+        </DetailtsContainer>
+      )}
+    </>
+  );
+};
+
+export default MovieDetail;
