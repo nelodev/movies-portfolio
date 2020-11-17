@@ -75,7 +75,7 @@ const Award = ({ title, description }) => {
 
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
-  const [movies, setMovies] = useState(MovieState);
+  const [movies] = useState(MovieState);
 
   const history = useHistory();
   const url = history.location.pathname;
