@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useScroll from "./useScroll";
 import {
   AboutContainer,
   DescriptionContainer,
@@ -9,6 +10,8 @@ import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
+
+import { scrollRevealAnimation } from "../animation";
 
 const ServicesContainer = styled(AboutContainer)`
   h2 {
@@ -30,7 +33,7 @@ const Card = styled.div`
   .icon {
     display: flex;
     align-items: center;
-    h3{
+    h3 {
       margin-left: 1rem;
       background-color: white;
       color: black;
@@ -40,8 +43,14 @@ const Card = styled.div`
 `;
 
 const ServicesSection = () => {
+  const [element, controls] = useScroll();
   return (
-    <ServicesContainer>
+    <ServicesContainer
+      variants={scrollRevealAnimation}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <DescriptionContainer>
         <h2>
           High <span>quality</span> services

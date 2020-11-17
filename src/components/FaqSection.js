@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { AnimateSharedLayout } from "framer-motion";
+import { scrollRevealAnimation } from "../animation";
 import { AboutContainer } from "../styles";
 import Toggle from "./Toggle";
+import useScroll from "./useScroll";
 
 const FAQContainer = styled(AboutContainer)`
   display: block;
@@ -31,8 +33,14 @@ const FAQContainer = styled(AboutContainer)`
 `;
 
 const FaqSection = () => {
+  const [element, controls] = useScroll();
   return (
-    <FAQContainer>
+    <FAQContainer
+      variants={scrollRevealAnimation}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <h2>
         Any Questions? <span>FAQ</span>
       </h2>
