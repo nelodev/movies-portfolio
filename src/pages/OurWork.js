@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import useScroll from "../components/useScroll";
 import {
   pageAnimation,
   fadeAnimation,
@@ -8,6 +9,7 @@ import {
   lineAnimation,
   sliderAnimation,
   sliderContainer,
+  swoodAdoopAnimation,
 } from "../animation";
 import athlete from "../img/athlete-small.png";
 import theracer from "../img/theracer-small.png";
@@ -22,7 +24,7 @@ const OurWorkContainer = styled(motion.div)`
   }
 `;
 
-const MovieContainer = styled.div`
+const MovieContainer = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
@@ -63,6 +65,8 @@ const Frame4 = styled(Frame1)`
 `;
 
 const OurWork = () => {
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
   return (
     <OurWorkContainer
       style={{ background: "#fff" }}
@@ -86,16 +90,26 @@ const OurWork = () => {
           </Hide>
         </Link>
       </MovieContainer>
-      <MovieContainer>
+      <MovieContainer
+        ref={element}
+        variants={fadeAnimation}
+        animate={controls}
+        initial="hidden"
+      >
         <h2>The Racer</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/our-work/the-racer">
           <img src={theracer} alt="Racer" />
         </Link>
       </MovieContainer>
-      <MovieContainer>
+      <MovieContainer
+        ref={element2}
+        variants={fadeAnimation}
+        animate={controls2}
+        initial="hidden"
+      >
         <h2>Good Times</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/our-work/good-times">
           <img src={goodtimes} alt="Good times" />
         </Link>
