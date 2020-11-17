@@ -9,11 +9,11 @@ import {
   lineAnimation,
   sliderAnimation,
   sliderContainer,
-  swoodAdoopAnimation,
 } from "../animation";
 import athlete from "../img/athlete-small.png";
 import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
+import ScrollTop from "../components/ScrollTop";
 
 const OurWorkContainer = styled(motion.div)`
   min-height: 100vh;
@@ -114,6 +114,7 @@ const OurWork = () => {
           <img src={goodtimes} alt="Good times" />
         </Link>
       </MovieContainer>
+      <ScrollTop />
     </OurWorkContainer>
   );
 };

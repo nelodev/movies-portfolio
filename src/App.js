@@ -9,7 +9,7 @@ import GlobalStyle from "./components/GlobalStyle";
 
 function App() {
   const location = useLocation();
-  return ( 
+  return (
     <div className="App">
       <GlobalStyle />
       <Nav />

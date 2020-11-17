@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { pageAnimation, titleAnimation } from "../animation";
+import ScrollTop from "../components/ScrollTop";
 
 const ContactContainer = styled(motion.div)`
   padding: 5rem 10rem;
@@ -66,6 +67,7 @@ const ContactUs = () => {
           </Social>
         </Hide>
       </div>
+      <ScrollTop />
     </ContactContainer>
   );
 };
